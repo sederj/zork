@@ -16,5 +16,3 @@ class Neighborhood(object):
         Constructor
         '''
         homes = [[Home() for j in range(cols)] for i in range(rows)]
-        myRow = 0
-        myCol = 0
