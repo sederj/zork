@@ -1,4 +1,5 @@
 import random 
+from abc import ABCMeta, abstractmethod
 '''
 Created on Nov 2, 2017
 
@@ -14,10 +15,10 @@ class Monster(object):
         '''
         Constructor
         '''
-        self.name = name;
-        self.health = health;
-        self.attack = attack;
-        self.observers = [];
+        self.name = name
+        self.health = health
+        self.attack = attack
+        self.observers = []
     
     def addObserver(self, observer):
         if not observer in self.observers:
@@ -31,4 +32,7 @@ class Monster(object):
         self.observers = []
     def update(self):
         for observer in self.observers:
-            observer.update()    
+            observer.update()
+    @abstractmethod
+    def attacked(self, person, weapon):
+        pass
