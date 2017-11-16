@@ -1,4 +1,5 @@
 import random
+import Weapon
 '''
 Created on Nov 2, 2017
 
@@ -15,9 +16,9 @@ class Player(object):
         '''
         self.health = random.randrange(100, 125)
         self.attack = random.randrange(10, 20)
-        self.weapons = Weapon[9]
-        weapons[0] = Weapon(True)
+        self.weapons = []
+        self.weapons[0] = Weapon(1)
         for i in range(9):
-            weapons[1+i] = Weapon(False)
+            self.weapons[1+i] = Weapon(random.randint(2,4))
         
     

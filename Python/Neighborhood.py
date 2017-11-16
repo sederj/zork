@@ -4,7 +4,7 @@ Created on Nov 2, 2017
 
 @author: User
 '''
-
+import Home
 class Neighborhood(object):
     '''
     classdocs
@@ -15,4 +15,4 @@ class Neighborhood(object):
         '''
         Constructor
         '''
-        homes = [[Home() for j in range(cols)] for i in range(rows)]
+        self.homes = [[Home() for j in range(cols)] for i in range(rows)]

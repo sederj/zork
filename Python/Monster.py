@@ -1,5 +1,6 @@
 import random 
 from abc import ABCMeta, abstractmethod
+
 '''
 Created on Nov 2, 2017
 
@@ -36,3 +37,29 @@ class Monster(object):
     @abstractmethod
     def attacked(self, person, weapon):
         pass
+    
+class Person(Monster):
+
+    def __init__(self):
+        #Persons have -1 attack because they restore 1 hp
+        Monster.__init__(self, "Person", 100, -1)
+        
+class Zombie(Monster):
+
+    def __init__(self):
+        Monster.__init__(self, "Zombie", random.randint(50, 100), )
+
+class Vampire(Monster):
+
+    def __init__(self):
+        Monster.__init__(self, random.randint(0, 100) + 100)
+
+class Ghoul(Monster):
+    
+    def __init__(self):
+        Monster.__init__(self, random.randint(0, 40) + 40)
+
+class Werewolf(Monster):
+    
+    def __init__(self):
+        Monster.__init__(self, 200)
