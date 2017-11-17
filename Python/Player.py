@@ -17,8 +17,24 @@ class Player(object):
         self.health = random.randrange(100, 125)
         self.attack = random.randrange(10, 20)
         self.weapons = []
-        self.weapons[0] = Weapon(1)
-        for i in range(9):
-            self.weapons[1+i] = Weapon(random.randint(2,4))
-        
-    
+        self.generateWeapons()
+    def printWeapons(self):
+        for ind,weapon in enumerate(weapons):
+            if(weapon.getName == "Empty"):
+                print((ind + 1) + " Empty")
+            else:
+                print((ind + 1) + ": " + weapon.getName() + " " + weapon.getUses())
+    def attack(self,weapon,monster):
+        if(self.weapons[weapon].getName() == "Empty"):
+            print("That slot was empty, using Hershey Kisses.")
+    def generateWeapons(self):
+        self.weapons[0] = HersheyKiss()
+        for i in range(8):
+            weaponNum = random.randint(2,4)
+            if (weaponNum == 2):
+                weapons.append(SourStraw())
+            elif (weaponNum == 3):
+                weapons.append(ChocolateBar())
+            elif (weaponNum == 4):
+                weapons.append(NerdBomb())
+            

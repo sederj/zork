@@ -16,3 +16,6 @@ class Neighborhood(object):
         Constructor
         '''
         self.homes = [[Home() for j in range(cols)] for i in range(rows)]
+    
+    def getHomes(self):
+        return self.homes
