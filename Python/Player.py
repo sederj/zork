@@ -1,5 +1,9 @@
 import random
 import Weapon
+from Weapon import HersheyKiss
+from Weapon import SourStraw
+from Weapon import ChocolateBar
+from Weapon import NerdBomb
 '''
 Created on Nov 2, 2017
 
@@ -19,7 +23,7 @@ class Player(object):
         self.weapons = []
         self.generateWeapons()
     def printWeapons(self):
-        for ind,weapon in enumerate(weapons):
+        for ind,weapon in enumerate(self.weapons):
             if(weapon.getName == "Empty"):
                 print((ind + 1) + " Empty")
             else:
@@ -37,4 +41,3 @@ class Player(object):
                 weapons.append(ChocolateBar())
             elif (weaponNum == 4):
                 weapons.append(NerdBomb())
-            

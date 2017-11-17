@@ -19,3 +19,5 @@ class Neighborhood(object):
     
     def getHomes(self):
         return self.homes
+    def getMonsterList(self, row, col):
+        return self.homes[row][col].getMonsters()

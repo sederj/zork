@@ -1,5 +1,10 @@
 import random
-
+import Monster 
+from Monster import Person
+from Monster import Zombie
+from Monster import Vampire
+from Monster import Ghoul
+from Monster import Werewolf
 '''
 Created on Nov 2, 2017
 
@@ -18,7 +23,7 @@ class Home(object):
         '''
         numMonsters = 0
         monsterList = []
-        randMonster = randrange(0,4)
+        randMonster = random.randrange(0,4)
         if(randMonster == 0):
             monsterList.append(Person(self))
         elif(randMonster == 1):
@@ -26,7 +31,7 @@ class Home(object):
             numMonsters += 1
         elif(randMonster == 2):
             monsterList.append(Vampire(self))
-            numMonster += 1
+            numMonsters += 1
         elif(randMonster == 3):
             monsterList.append(Ghoul(self))
             numMonsters += 1
