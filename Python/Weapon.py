@@ -50,6 +50,8 @@ class Weapon(object):
 #             self.name = "HersheyKisses"
 #             self.attMod = 1
 #             self.uses = -1
+    def getAttack(self, weapon):
+        random.randomfloatbetween(lowval, highval)
             
 class HersheyKiss(Weapon):
 

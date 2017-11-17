@@ -35,9 +35,11 @@ class Monster(object):
         for observer in self.observers:
             observer.update()
     @abstractmethod
-    def attacked(self, person, weapon):
-        pass
-    
+    def attacked(self, player, attackPower):
+        self.health = self.health - attackPower
+        if (self.health <= 0):
+            self.update()
+        player.
 class Person(Monster):
 
     def __init__(self):

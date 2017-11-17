@@ -1,5 +1,4 @@
 import random
-import Weapon
 from Weapon import HersheyKiss
 from Weapon import SourStraw
 from Weapon import ChocolateBar
@@ -22,15 +21,23 @@ class Player(object):
         self.attack = random.randrange(10, 20)
         self.weapons = []
         self.generateWeapons()
+        
     def printWeapons(self):
         for ind,weapon in enumerate(self.weapons):
             if(weapon.getName == "Empty"):
                 print((ind + 1) + " Empty")
             else:
                 print((ind + 1) + ": " + weapon.getName() + " " + weapon.getUses())
+                
     def attack(self,weapon,monster):
         if(self.weapons[weapon].getName() == "Empty"):
             print("That slot was empty, using Hershey Kisses.")
+        attackPower = weapon.
+        monster.attacked(attackPower)
+        self.health = self.health - monster.getAttackPower()
+        if (self.health <= 0):
+            self.update()
+            
     def generateWeapons(self):
         self.weapons[0] = HersheyKiss()
         for i in range(8):
