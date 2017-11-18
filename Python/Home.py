@@ -45,4 +45,4 @@ class Home(object):
     def update(self):
         self.observer.update()
     def getMonsters(self):
-        return monsterList
+        return self.monsterList

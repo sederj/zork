@@ -28,7 +28,7 @@ class Game(object):
                 self.move(self, command[5:])
             elif (command[:6] == "attack"):
                 #print weapons with a number and prompt to choose a weapon
-                player.printWeapons();
+                self.player.printWeapons();
                 print("Select the number of the weapon you wish to use.")
                 weapon = input()
                 #error check input
