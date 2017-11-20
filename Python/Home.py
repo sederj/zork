@@ -45,6 +45,15 @@ class Home(object):
         observer.addMonsters(self.numMonsters)
         
     def update(self):
+        #self.monsterList.append(Person(self))
+        #self.monsterList = [x for x in self.monsterList if x.getHealth()>0]
         self.observer.update()
     def getMonsters(self):
         return self.monsterList
+    def switchMonsters(self):
+        deadMonsters = []
+        for ind,monster in enumerate(self.monsterList):    
+            if(monster.getHealth() < 0):
+                deadMonsters.append(ind)
+        for x in deadMonsters:
+            self.monsterList[x] = Person(self)

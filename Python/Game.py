@@ -1,5 +1,6 @@
 from Neighborhood import Neighborhood
 from Player import Player
+from Monster import Person
 '''
 Created on Nov 2, 2017
 
@@ -36,7 +37,7 @@ class Game(object):
                 # -1 to align with list indices
                 weapon = weapon - 1
                 if(isinstance(weapon,int)):
-                    if(weapon >=1 and weapon <= 10):
+                    if(weapon >=0 and weapon <= 9):
                         self.attack(weapon)
                     else:
                         print("Invalid weapon. Choose 1-10")
@@ -77,6 +78,7 @@ class Game(object):
         monsters = self.neighborhood.getMonsterList(self.row,self.col)
         for monster in monsters:
             self.player.attackMon(weapon,monster)
+        self.neighborhood.getHomes()[self.row][self.col].switchMonsters()
         self.player.decWeapon(weapon)
         print("Remaining Player Health: " + str(self.player.getHealth()))
         if(self.player.getHealth() < 0):

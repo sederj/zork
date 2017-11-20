@@ -28,3 +28,5 @@ class Neighborhood(object):
         return self.numMonsters
     def addMonsters(self,addMonsters):
         self.numMonsters = self.numMonsters + addMonsters
+    def update(self):
+        self.numMonsters = self.numMonsters - 1
