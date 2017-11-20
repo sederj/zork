@@ -13,16 +13,19 @@ class Game(object):
         '''
         Constructor
         '''
-        self.neighborhood = Neighborhood(4, 4)
+        self.neighborhood = Neighborhood.Neighborhood(4, 4)
         self.maxRow = 3
         self.maxCol = 3
-        self.player = Player()
+        self.player = Player.Player()
         self.row = 0
         self.col = 0
         self.gameOver = False
         
     def start(self):
         while (self.gameOver == False):
+            self.printWelcome()
+            self.printHelp()
+            
             command = input()
             if (command[:4] == "move"):
                 self.move(self, command[5:])
@@ -39,8 +42,13 @@ class Game(object):
                         print("Invalid weapon. Choose 1-10")
                 else:
                     print("Input an integer for the weapon of choice")    
+            elif (command[:8] == "location"):
+                print("Neighborhood is a ", (self.maxRow+1), " x ", (self.maxCol+1), " grid \n")
+                print("Current row: ", (self.row+1), "\n")
+                print("Current col: ", (self.col+1), "\n")  
             else:
                 print("Invalid Command\n")
+                self.printHelp()
         
     def move(self, direction):
         if (direction == "north"):
@@ -70,3 +78,13 @@ class Game(object):
         monsters = self.neighborhood.getHomes()[self.row,self.col].getMonsterList()
         for monster in monsters:
             self.player.attack(weapon,monster)
+            
+    def printWelcome(self):
+        print("Welcome to zork! You must save the village and stuff! \n")
+    def printHelp(self):
+        print()
+        print("Commands:")
+        print("move direction")
+        print("attack")
+        print("location")
+        print()

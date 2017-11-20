@@ -5,13 +5,14 @@ from Monster import Zombie
 from Monster import Vampire
 from Monster import Ghoul
 from Monster import Werewolf
+from Observer import Observer
 '''
 Created on Nov 2, 2017
 
 @author: User
 '''
 
-class Home(object):
+class Home(Observer):
     '''
     classdocs
     '''
@@ -39,10 +40,11 @@ class Home(object):
             monsterList.append(Werewolf(self))
             numMonsters += 1
             
-        self.observer = observer
-        observer.setMonsters(observer.getMonsters() + numMonsters)
+        #self.observer = observer
+        #observer.setMonsters(observer.getMonsters() + numMonsters)
         
-    def update(self):
-        self.observer.update()
+    def update(self, monsterNum):
+        self.getMonsters().remove(monsterNum)
+        
     def getMonsters(self):
         return self.monsterList

@@ -20,7 +20,7 @@ class Player(object):
         '''
         self.health = random.randrange(100, 125)
         self.attack = random.randrange(10, 20)
-        self.weapons = []
+        self.weapons = [10]
         self.generateWeapons()
     def printWeapons(self):
         for ind,weapon in enumerate(self.weapons):
