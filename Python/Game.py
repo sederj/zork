@@ -33,6 +33,8 @@ class Game(object):
                 weapon = input()
                 #error check input
                 weapon = int(weapon)
+                # -1 to align with list indices
+                weapon = weapon - 1
                 if(isinstance(weapon,int)):
                     if(weapon >=1 and weapon <= 10):
                         self.attack(weapon)
@@ -69,6 +71,13 @@ class Game(object):
             print("Invalid Direction\n")
     
     def attack(self,weapon):
+        if(self.player.getWeapons()[weapon].getName() == "Empty"):
+            print("That slot was empty, using Hershey Kisses.")
+            weapon = 0
         monsters = self.neighborhood.getMonsterList(self.row,self.col)
         for monster in monsters:
-            self.player.attack(weapon,monster)
+            self.player.attackMon(weapon,monster)
+        self.player.decWeapon(weapon)
+        print("Remaining Player Health: " + str(self.player.getHealth()))
+        if(self.player.getHealth() < 0):
+            print("Game Over")

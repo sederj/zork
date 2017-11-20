@@ -22,6 +22,10 @@ class Player(object):
         self.attack = random.randrange(10, 20)
         self.weapons = []
         self.generateWeapons()
+    def getWeapons(self):
+        return self.weapons
+    def getHealth(self):
+        return self.health
     def printWeapons(self):
         for ind,weapon in enumerate(self.weapons):
             #if(weapon.getName() == "Empty"):
@@ -36,15 +40,12 @@ class Player(object):
         if(weapon.getUses() == 0):
             self.weapons[weaponNum] = Empty()
                             
-    def attack(self,weaponNum,monster):
-        if(self.weapons[weaponNum].getName() == "Empty"):
-            print("That slot was empty, using Hershey Kisses.")
-            weapon = 0
+    def attackMon(self,weaponNum,monster):
         self.health = self.health - monster.attacked(self.attack,self.weapons[weaponNum])
-        if (self.health <= 0):
+    #    if (self.health <= 0):
     #       self.update() we will use this if we decide to make player an observable
     #       I think we should do an observable but it would have to have a different update method
-            print("Game Over")
+    #        print("Game Over")
     def generateWeapons(self):
         self.weapons.append(HersheyKiss())
         for i in range(8):

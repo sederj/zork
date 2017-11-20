@@ -37,13 +37,15 @@ class Monster(object):
     @abstractmethod
     def attacked(self, personAtt, weapon):
         pass
-    
+    def getName(self):
+        return self.name
 class Person(Monster):
 
     def __init__(self,observer):
         #Persons have -1 attack because they restore 1 hp
         Monster.__init__(self, "Person", 100, observer)
     def attacked(self, personAtt, weapon):
+        print(self.name)
         return -1
 class Zombie(Monster):
 
@@ -55,6 +57,7 @@ class Zombie(Monster):
         self.health = self.health - (personAtt * weapon.getAttMod())
         #call a check health method which will call update if dead and switch to a person(might need
         #the monsterlist from game in order to do that)
+        print(self.name + " " + str(self.health))
         return random.randint(0,10)
 class Vampire(Monster):
 
@@ -66,6 +69,7 @@ class Vampire(Monster):
         self.health = self.health - (personAtt * weapon.getAttMod())
         #call a check health method which will call update if dead and switch to a person(might need
         #the monsterlist from game in order to do that)
+        print(self.name + " " + str(self.health))
         return random.randint(10,20)
 class Ghoul(Monster):
     
@@ -76,10 +80,12 @@ class Ghoul(Monster):
             self.health = self.health - (personAtt * weapon.getAttMod() * 5)
             #call a check health method which will call update if dead and switch to a person(might need
             #the monsterlist from game in order to do that)
+            print(self.name + " " + str(self.health))
             return random.randint(15,30)
         self.health = self.health - (personAtt * weapon.getAttMod())
         #call a check health method which will call update if dead and switch to a person(might need
         #the monsterlist from game in order to do that)
+        print(self.name + " " + str(self.health))
         return random.randint(15,30)
 class Werewolf(Monster):
     
@@ -87,8 +93,10 @@ class Werewolf(Monster):
         Monster.__init__(self,"Werewolf", 200, observer)
     def attacked(self, personAtt, weapon):
         if(weapon.getName() == "ChocolateBars" or weapon.getName() == "SourStraws"):
+            print(self.name + " " + str(self.health))
             return random.randint(0,40)
         self.health = self.health - (personAtt * weapon.getAttMod())
         #call a check health method which will call update if dead and switch to a person(might need
         #the monsterlist from game in order to do that)
+        print(self.name + " " + str(self.health))
         return random.randint(0,40)

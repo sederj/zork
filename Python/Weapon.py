@@ -27,7 +27,8 @@ class Weapon(object):
         return self.uses
     def decrement(self):
         if(self.uses > 0):
-            self.uses = self.uses - 1       
+            print("decrementing weapon")
+            self.uses = (self.uses - 1)       
 #         if(isDefault == False):
 #             randWeap = randrange(0,2)
 #             if(randWeap == 0):
