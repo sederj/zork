@@ -18,7 +18,6 @@ class Monster(object):
         '''
         self.name = name
         self.health = health
-        self.attack = attack
         self.observers = []
         self.observers.append(observer)
     
@@ -49,7 +48,7 @@ class Person(Monster):
 class Zombie(Monster):
 
     def __init__(self,observer):
-        Monster.__init__(self, "Zombie", random.randint(50, 100), observer)
+        Monster.__init__(self,"Zombie", random.randint(50, 100), observer)
     def attacked(self, personAtt, weapon):
         if(weapon.getName() == "SourStraws"):
             return random.randint(0,10)
@@ -60,7 +59,7 @@ class Zombie(Monster):
 class Vampire(Monster):
 
     def __init__(self, observer):
-        Monster.__init__(self, random.randint(0, 100) + 100, observer)
+        Monster.__init__(self,"Vampire",random.randint(0, 100) + 100, observer)
     def attacked(self, personAtt, weapon):
         if(weapon.getName() == "ChocolateBars"):
             return random.randint(10,20)
@@ -71,7 +70,7 @@ class Vampire(Monster):
 class Ghoul(Monster):
     
     def __init__(self, observer):
-        Monster.__init__(self, random.randint(0, 40) + 40)
+        Monster.__init__(self,"Ghoul", random.randint(0, 40) + 40, observer)
     def attacked(self, personAtt, weapon):
         if(weapon.getName() == "NerdBombs"):
             self.health = self.health - (personAtt * weapon.getAttMod() * 5)
@@ -85,7 +84,7 @@ class Ghoul(Monster):
 class Werewolf(Monster):
     
     def __init__(self, observer):
-        Monster.__init__(self, 200)
+        Monster.__init__(self,"Werewolf", 200, observer)
     def attacked(self, personAtt, weapon):
         if(weapon.getName() == "ChocolateBars" or weapon.getName() == "SourStraws"):
             return random.randint(0,40)

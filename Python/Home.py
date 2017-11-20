@@ -21,26 +21,26 @@ class Home(object):
         '''
         Constructor
         '''
-        numMonsters = 0
-        monsterList = []
+        self.numMonsters = 0
+        self.monsterList = []
         randMonster = random.randrange(0,4)
         if(randMonster == 0):
-            monsterList.append(Person(self))
+            self.monsterList.append(Person(self))
         elif(randMonster == 1):
-            monsterList.append(Zombie(self))
-            numMonsters += 1
+            self.monsterList.append(Zombie(self))
+            self.numMonsters += 1
         elif(randMonster == 2):
-            monsterList.append(Vampire(self))
-            numMonsters += 1
+            self.monsterList.append(Vampire(self))
+            self.numMonsters += 1
         elif(randMonster == 3):
-            monsterList.append(Ghoul(self))
-            numMonsters += 1
+            self.monsterList.append(Ghoul(self))
+            self.numMonsters += 1
         else:
-            monsterList.append(Werewolf(self))
-            numMonsters += 1
+            self.monsterList.append(Werewolf(self))
+            self.numMonsters += 1
             
         self.observer = observer
-        observer.setMonsters(observer.getMonsters() + numMonsters)
+        observer.addMonsters(self.numMonsters)
         
     def update(self):
         self.observer.update()

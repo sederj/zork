@@ -1,5 +1,5 @@
-import Neighborhood
-import Player
+from Neighborhood import Neighborhood
+from Player import Player
 '''
 Created on Nov 2, 2017
 
@@ -25,16 +25,17 @@ class Game(object):
         while (self.gameOver == False):
             command = input()
             if (command[:4] == "move"):
-                self.move(self, command[5:])
+                self.move(command)
             elif (command[:6] == "attack"):
                 #print weapons with a number and prompt to choose a weapon
                 self.player.printWeapons();
                 print("Select the number of the weapon you wish to use.")
                 weapon = input()
                 #error check input
+                weapon = int(weapon)
                 if(isinstance(weapon,int)):
                     if(weapon >=1 and weapon <= 10):
-                        self.attack(self, weapon)
+                        self.attack(weapon)
                     else:
                         print("Invalid weapon. Choose 1-10")
                 else:
@@ -43,6 +44,7 @@ class Game(object):
                 print("Invalid Command\n")
         
     def move(self, direction):
+        direction = direction[5:]
         if (direction == "north"):
             self.row = self.row + 1
             if (self.row > self.maxRow):
@@ -67,6 +69,6 @@ class Game(object):
             print("Invalid Direction\n")
     
     def attack(self,weapon):
-        monsters = self.neighborhood.getHomes()[self.row,self.col].getMonsterList()
+        monsters = self.neighborhood.getMonsterList(self.row,self.col)
         for monster in monsters:
             self.player.attack(weapon,monster)

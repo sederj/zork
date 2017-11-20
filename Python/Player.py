@@ -24,10 +24,12 @@ class Player(object):
         self.generateWeapons()
     def printWeapons(self):
         for ind,weapon in enumerate(self.weapons):
-            if(weapon.getName == "Empty"):
-                print((ind + 1) + " Empty")
-            else:
-                print((ind + 1) + ": " + weapon.getName() + " " + weapon.getUses())
+            #if(weapon.getName() == "Empty"):
+            #    index = str(ind + 1)
+            #    print(index + ": Empty")
+            #else:
+            
+            print(str(ind + 1) + ": " + weapon.getName() + " " + str(weapon.getUses()))
     def decWeapon(self,weaponNum):
         weapon = self.weapons[weaponNum]
         weapon.decrement()
@@ -44,7 +46,7 @@ class Player(object):
     #       I think we should do an observable but it would have to have a different update method
             print("Game Over")
     def generateWeapons(self):
-        self.weapons[0] = HersheyKiss()
+        self.weapons.append(HersheyKiss())
         for i in range(8):
             weaponNum = random.randint(2,4)
             if (weaponNum == 2):
