@@ -1,7 +1,7 @@
 '''
 Created on Nov 20, 2017
 
-@author: Joey
+@author: Joseph Seder, Daniel Gritters
 '''
 class Observable(object):
  
@@ -12,7 +12,7 @@ class Observable(object):
                 if not observer in self.observers:
                         self.observers.append(observer)
  
-        def remove_observe(self, observer):
+        def remove_observer(self, observer):
                 if observer in self.observers:
                         self.observers.remove(observer)
  

@@ -1,7 +1,7 @@
 '''
 Created on Nov 20, 2017
 
-@author: Joey
+@author: Joseph Seder, Daniel Gritters
 '''
 from abc import ABCMeta, abstractmethod
  
